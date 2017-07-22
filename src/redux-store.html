@@ -9,11 +9,13 @@
   //
   // import PolymerRedux from '../bower_components/polymer-redux/src/index.js';
 
+
   const initial = {message: 'Hello, World!'};
   const reducer = state => state;
   const store = Redux.createStore(reducer, initial);
 
-  // Fails with:
+
+  // app-main.html fails with:
   // 
   // index.js:15589 Uncaught ReferenceError: PolymerRedux is not defined
   //   at Object.<anonymous> (index.js:15589)
@@ -27,7 +29,8 @@
   //
   const ReduxMixin = PolymerRedux(store);
   
-  // Fails with:
+
+  // app-main.html fails with:
   //
   // index.js:10089 Uncaught ReferenceError: ReduxMixin is not defined
   //   at Object.<anonymous> (index.js:10089)
@@ -39,7 +42,8 @@
   //
   // const ReduxMixin = (Parent) => Parent;
 
-  // Works
+
+  // app-main.html works...
   //
   // window.ReduxMixin = (Parent) => Parent;
 </script>
