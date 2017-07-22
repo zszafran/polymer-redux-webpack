@@ -1,0 +1,45 @@
+<link rel="import" href="../bower_components/polymer-redux/polymer-redux.html">
+
+<script type="text/javascript">
+  const Redux = require('redux');
+  // Needs to support ES6 Spread syntax:
+  //
+  // ERROR in ./bower_components/polymer-redux/src/index.js
+  // Module build failed: SyntaxError: Unexpected token (109:10)
+  //
+  // import PolymerRedux from '../bower_components/polymer-redux/src/index.js';
+
+  const initial = {message: 'Hello, World!'};
+  const reducer = state => state;
+  const store = Redux.createStore(reducer, initial);
+
+  // Fails with:
+  // 
+  // index.js:15589 Uncaught ReferenceError: PolymerRedux is not defined
+  //   at Object.<anonymous> (index.js:15589)
+  //   at __webpack_require__ (index.js:20)
+  //   at Object.<anonymous> (index.js:10080)
+  //   at __webpack_require__ (index.js:20)
+  //   at Object.<anonymous> (index.js:4405)
+  //   at __webpack_require__ (index.js:20)
+  //   at module.exports.ctor.super_ (index.js:63)
+  //   at index.js:66
+  //
+  const ReduxMixin = PolymerRedux(store);
+  
+  // Fails with:
+  //
+  // index.js:10089 Uncaught ReferenceError: ReduxMixin is not defined
+  //   at Object.<anonymous> (index.js:10089)
+  //   at __webpack_require__ (index.js:20)
+  //   at Object.<anonymous> (index.js:4405)
+  //   at __webpack_require__ (index.js:20)
+  //   at module.exports.ctor.super_ (index.js:63)
+  //   at index.js:66
+  //
+  // const ReduxMixin = (Parent) => Parent;
+
+  // Works
+  //
+  // window.ReduxMixin = (Parent) => Parent;
+</script>

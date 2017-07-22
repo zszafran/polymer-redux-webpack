@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="redux-store.html">
+
+<dom-module id="app-main">
+  <template>
+    Message: <span>[[message]]</span>
+  </template>
+
+  <script>
+    class AppMain extends ReduxMixin(Polymer.Element) {
+
+      static get is() { return 'app-main'; }
+
+      static get properties() {
+        return {
+          message: {
+            type: String,
+            statePath: 'message',
+          },
+        };
+      }
+
+    }
+
+    window.customElements.define(AppMain.is, AppMain);
+  </script>
+</dom-module>

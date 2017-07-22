@@ -1,0 +1,26 @@
+{
+  "name": "polymer-redux-webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zszafran/polymer-redux-webpack.git",
+  "author": "Zach Szafran <zszafran@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --optimize-minimize",
+    "serve": "webpack-dev-server",
+    "start": "webpack --progress --colors --watch"
+  },
+  "dependencies": {
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "6",
+    "babel-loader": "^7.1.1",
+    "copy-webpack-plugin": "^4.0.1",
+    "html-webpack-plugin": "^2.29.0",
+    "loglevel": "^1.4.1",
+    "polymer-webpack-loader": "^1.2.3",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.6.0"
+  }
+}

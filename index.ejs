@@ -1,0 +1,84 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Polymer Starter Kit">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <meta name="description" content="My App description">
+
+    <base href="/">
+
+    <link rel="icon" href="images/favicon.ico">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#3f51b5">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="<%= htmlWebpackPlugin.options.title %>">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="<%= htmlWebpackPlugin.options.title %>">
+
+    <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
+
+    <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#3f51b5">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <script>
+      // Register the base URL
+      const baseUrl = document.querySelector('base').href;
+    </script>
+
+    <script>
+      document.addEventListener('WebComponentsReady', function webcomponentsready() {
+        <% htmlWebpackPlugin.files.js.forEach((file) => { %>
+          var refScript = document.getElementsByTagName('script')[0];
+          var script = document.createElement('script');
+          script.src = '<%= file %>';
+          refScript.parentNode.insertBefore(script, refScript);
+        <% }); %>
+        document.removeEventListener('WebComponentsReady', webcomponentsready, false);
+      }, false);
+    </script>
+
+    <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <!-- Add any global styles for body, document, etc. -->
+    <style>
+      html,
+      body {
+        width: 100vw;
+        line-height: 1.5;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <app-main></app-main>
+    <noscript>
+      Please enable JavaScript to view this website.
+    </noscript>
+  </body>
+</html>
