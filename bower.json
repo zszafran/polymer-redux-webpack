@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "polymer": "^2.0.0",
-    "polymer-redux": "^1.0.1",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.7"
   },
   "resolutions": {

@@ -29,15 +29,28 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              presets: ['env'],
+            },
           },
           {
             loader: 'polymer-webpack-loader',
+            options: {
+              presets: ['env'],
+            },
           },
         ],
       },
       {
         test: /\.js$/,
-        use: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env'],
+            },
+          },
+        ],
       },
     ],
   },
